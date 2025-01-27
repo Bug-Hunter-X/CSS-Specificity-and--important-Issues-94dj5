@@ -1,0 +1,23 @@
+The CSS specificity is a common issue that may cause unexpected behavior.  For example, consider the following scenario:
+
+```css
+div {
+  color: blue;
+}
+
+.special {
+  color: red;
+}
+
+#specific {
+  color: green;
+}
+
+#specific.special {
+  color: purple;
+}
+```
+
+If an element has the id `specific` and the class `special`, the color will be purple because `#specific.special` is more specific than the others.  However, unexpected specificity can be problematic when multiple styles clash or styles are unintentionally overridden.
+
+Another issue is the use of !important, which can override any other rule. While it might seem convenient in specific situations, it makes CSS harder to maintain and debug. It breaks the natural CSS cascade and can lead to unexpected behavior in complex projects.
